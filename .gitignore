@@ -1,0 +1,8 @@
+__pycache__
+sim_build
+venv
+*.vcd
+*.xml
+*.png
+*.swp
+*.swo

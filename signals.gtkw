@@ -1,0 +1,62 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Tue Dec 10 13:58:49 2024
+[*]
+[dumpfile] "/home/sudeep/GitHub/Valid_Ready/waves.vcd"
+[dumpfile_mtime] "Tue Dec 10 13:52:13 2024"
+[dumpfile_size] 4000
+[savefile] "/home/sudeep/GitHub/Valid_Ready/signals.gtkw"
+[timestart] 0
+[size] 1920 1001
+[pos] -1 -1
+*-14.245592 20000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_master_slave_interface.
+[sst_width] 278
+[signals_width] 299
+[sst_expanded] 1
+[sst_vpaned_height] 297
+@28
+tb_master_slave_interface.clk
+tb_master_slave_interface.rst_n
+tb_master_slave_interface.stall_slave
+tb_master_slave_interface.stall_master
+@22
+tb_master_slave_interface.m_to_s_data[7:0]
+@200
+-Master
+@22
+tb_master_slave_interface.master_inst.counter[7:0]
+@28
+tb_master_slave_interface.master_inst.i_m_stall
+@22
+[color] 2
+tb_master_slave_interface.master_inst.o_m_data[7:0]
+@29
+[color] 2
+tb_master_slave_interface.master_inst.o_m_valid
+@28
+[color] 2
+tb_master_slave_interface.master_inst.i_m_ready
+tb_master_slave_interface.master_inst.is_valid_signal
+tb_master_slave_interface.master_inst.ir_m_valid
+@22
+tb_master_slave_interface.master_inst.ir_m_data[7:0]
+@200
+-Slave
+@22
+[color] 1
+tb_master_slave_interface.slave_inst.i_s_data[7:0]
+@28
+[color] 1
+tb_master_slave_interface.slave_inst.i_s_valid
+[color] 1
+tb_master_slave_interface.slave_inst.o_s_ready
+tb_master_slave_interface.slave_inst.i_s_stall
+@22
+tb_master_slave_interface.slave_inst.ir_data[7:0]
+@28
+tb_master_slave_interface.slave_inst.ir_s_ready
+tb_master_slave_interface.slave_inst.is_ready_signal
+tb_master_slave_interface.slave_inst.o_reg_data
+[pattern_trace] 1
+[pattern_trace] 0
