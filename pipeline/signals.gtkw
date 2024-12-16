@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Mon Dec 16 20:00:15 2024
+[*]
+[dumpfile] "/home/sudeep/GitHub/Valid-Ready-Interface/pipeline/waves.vcd"
+[dumpfile_mtime] "Mon Dec 16 19:56:00 2024"
+[dumpfile_size] 20172
+[savefile] "/home/sudeep/GitHub/Valid-Ready-Interface/pipeline/signals.gtkw"
+[timestart] 0
+[size] 1920 1001
+[pos] -1 -1
+*-14.803433 10000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_pipeline.
+[sst_width] 278
+[signals_width] 357
+[sst_expanded] 1
+[sst_vpaned_height] 297
+@28
+tb_pipeline.clk
+tb_pipeline.rst_n
+tb_pipeline.i_internal_stall_1
+tb_pipeline.i_internal_stall_2
+tb_pipeline.i_internal_stall_3
+@200
+-Stage 1
+@22
+tb_pipeline.u_stage_1.counter[15:0]
+tb_pipeline.u_stage_1.o_data[15:0]
+@28
+tb_pipeline.u_stage_1.is_ce
+tb_pipeline.u_stage_1.o_valid
+tb_pipeline.u_stage_1.i_flush
+tb_pipeline.u_stage_1.i_next_ce
+tb_pipeline.u_stage_1.i_stall
+@200
+-Stage 2
+[pattern_trace] 1
+[pattern_trace] 0
