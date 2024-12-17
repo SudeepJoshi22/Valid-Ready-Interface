@@ -21,6 +21,10 @@ module stage_1(
 
 	// Internal wires
 	wire is_ce;
+	wire is_stall;
+
+	// Stall for this stage
+	assign is_stall = i_stall || i_internal_stall;
 
 	// Output of this stage
 	assign o_data = ir_data;
@@ -36,7 +40,7 @@ module stage_1(
 
 	// Is this stage enabled?
 	// assign	stage[n]_ce = (stage[n-1]_valid)&&(!stage[n]_stalled);
-	assign is_ce = ~i_stall || ~i_internal_stall;
+	assign is_ce = ~is_stall && ~i_flush;
 
 	// Clocking Valid of this stage
 	always @(posedge i_clk, negedge i_rst_n) begin
@@ -56,6 +60,12 @@ module stage_1(
 	always @(posedge i_clk, negedge i_rst_n) begin
 		if(is_ce) begin
 			ir_data <= counter; // Pass the current counter value to data
+		end
+		else if(i_flush) begin
+			ir_data <= 0; // Drop the data if flushed
+		end
+		else begin
+			ir_data <= ir_data;
 		end
 	end
 	

@@ -21,18 +21,26 @@ module stage_2(
 	// Internal Registers
 	reg[15:0] ir_data;
 	reg ir_valid;
+	reg ir_stall_prev;
 
 	// Internal wires
 	wire is_ce;
+	wire is_stall;
+
+	assign is_stall = i_stall || i_internal_stall;
 
 	// Output of this stage
 	assign o_data = ir_data;
 	assign o_valid = ir_valid;
 
 	assign o_current_ce = is_ce;
+
+	// Stall the previous stage
+	assign o_stall = ir_stall_prev;	
+
 	// Is this stage enabled?
 	// assign	stage[n]_ce = (stage[n-1]_valid)&&(!stage[n]_stalled);
-	assign is_ce = ~i_stall || ~i_internal_stall;
+	assign is_ce = (~is_stall && i_valid) && ~i_flush;
 
 	// Clocking Valid of this stage
 	always @(posedge i_clk, negedge i_rst_n) begin
@@ -53,8 +61,24 @@ module stage_2(
 	// Data processing for this stage
 	always @(posedge i_clk, negedge i_rst_n) begin
 		if(is_ce) begin
-			ir_data <= i_data + 1; // Pass the current counter value to data
+			ir_data <= i_data + 1; // Increment the received data 
 		end
+		else if(i_flush) begin
+			ir_data <= 0; // Drop the data if flushed
+		end
+		else begin
+			ir_data <= ir_data;
+		end
+
 	end
 
+	// Clock the ir_prev_stall
+	always @(posedge i_clk, negedge i_rst_n) begin
+		if(~i_rst_n || i_flush) begin
+			ir_stall_prev <= 1'b0;
+		end
+		else begin
+			ir_stall_prev <= is_stall;
+		end
+	end
 endmodule
