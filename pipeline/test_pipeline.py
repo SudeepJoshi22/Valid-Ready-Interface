@@ -40,7 +40,15 @@ async def test_pipeline(dut):
 		if _ == 10:	
 			await assert_resetn(dut, 2) # Reset for 2 clock cycles
 			
-		
+	# See what happens if stall and flush comes at the same time
+	dut.i_internal_stall_3.value = 1
+	dut.i_flush.value = 1
+	await RisingEdge(dut.clk)
+
+	dut.i_internal_stall_3.value = 0
+	dut.i_flush.value = 0
+	await ClockCycles(dut.clk, 10)
+
 	#await ClockCycles(dut.clk, 100) # End simulation after 100 clock cycles
 		
 async def assert_resetn(dut, cycles=1):
